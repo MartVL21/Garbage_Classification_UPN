@@ -1,0 +1,179 @@
+/* Diseño personalizado */
+body {
+    background-color: #f4f4f9;
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    color: #333;
+    font-weight: bold;
+}
+
+.card-header, .card-footer {
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #000000, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón de "Mostrar Recomendaciones" */
+.btn-info {
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+/* Colores asignados a cada tipo de residuo */
+.card-header.paper, .card-footer.paper,
+.card-header.cardboard, .card-footer.cardboard {
+    background-color: #3498db; /* Azul */
+}
+
+.card-header.plastic, .card-footer.plastic,
+.card-header.metal, .card-footer.metal {
+    background-color: #f1c40f; /* Amarillo */
+}
+
+.card-header.green-glass, .card-footer.green-glass,
+.card-header.white-glass, .card-footer.white-glass,
+.card-header.brown-glass, .card-footer.brown-glass {
+    background-color: #27ae60; /* Verde */
+}
+
+.card-header.biological, .card-footer.biological {
+    background-color: #8e6131; /* Marrón */
+}
+
+.card-header.battery, .card-footer.battery{
+    background-color: #c0392b; /* Rojo */
+}
+
+.card-header.shoes, .card-footer.shoes,
+.card-header.clothes, .card-footer.clothes {
+    background-color: #41007a; /* Morado */
+}
+
+.card-header.trash, .card-footer.trash {
+    background-color: #7f8c8d; /* Gris */
+}
+
+/* Botón de "Mostrar Recomendaciones" */
+.btn-info {
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.btn-info.paper {
+    background-color: #3498db; /* Azul */
+}
+
+.btn-info.cardboard {
+    background-color: #3498db; /* Azul */
+}
+
+.btn-info.plastic,
+.btn-info.metal {
+    background-color: #f1c40f; /* Amarillo */
+}
+
+.btn-info.green-glass,
+.btn-info.white-glass,
+.btn-info.brown-glass {
+    background-color: #27ae60; /* Verde */
+}
+
+.btn-info.biological {
+    background-color: #8e6131; /* Marrón */
+}
+
+.btn-info.battery{
+    background-color: #c0392b; /* Rojo */
+}
+
+.btn-info.shoes,
+.btn-info.clothes {
+    background-color: #41007a; /* Morado */
+}
+
+.btn-info.trash {
+    background-color: #7f8c8d; /* Gris */
+}
+
+/* Colores del texto en las recomendaciones */
+.container-color.paper,
+.container-color.cardboard {
+    color: #3498db; /* Azul */
+    font-weight: bold;
+}
+
+.container-color.plastic,
+.container-color.metal {
+    color: #f1c40f; /* Amarillo */
+    font-weight: bold;
+}
+
+.container-color.green-glass,
+.container-color.white-glass,
+.container-color.brown-glass {
+    color: #27ae60; /* Verde */
+    font-weight: bold;
+}
+
+.container-color.biological {
+    color: #8e6131; /* Marrón */
+    font-weight: bold;
+}
+
+.container-color.battery {
+    color: #c0392b; /* Rojo */
+    font-weight: bold;
+}
+
+.container-color.shoes,
+.container-color.clothes {
+    color: #41007a; /* Morado */
+    font-weight: bold;
+}
+
+.container-color.trash {
+    color: #7f8c8d; /* Gris */
+    font-weight: bold;
+}
+
+.card-body {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-file-label {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+.custom-file-input:focus ~ .custom-file-label {
+    border-color: #007bff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}

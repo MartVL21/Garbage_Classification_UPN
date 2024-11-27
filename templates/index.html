@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificador de Residuos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4 title">Clasificador de Residuos</h1>
+        <form method="POST" enctype="multipart/form-data" class="mb-4">
+            <!-- Botón para cargar un archivo -->
+            <div class="custom-file mb-3">
+                <input type="file" name="image" accept="image/*" required class="custom-file-input" id="fileInput">
+                <label class="custom-file-label" for="fileInput" id="fileLabel">Selecciona un archivo</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Clasificar Imagen</button>
+        </form>
+
+        {% if result %}
+        {% set translations = {
+            'paper': 'Papel',
+            'cardboard': 'Cartón',
+            'plastic': 'Plástico',
+            'metal': 'Metal',
+            'green-glass': 'Vidrio Verde',
+            'white-glass': 'Vidrio Blanco',
+            'brown-glass': 'Vidrio Marrón',
+            'biological': 'Residuos Orgánicos',
+            'battery': 'Baterías',
+            'shoes': 'Zapatos',
+            'clothes': 'Ropa',
+            'trash': 'Residuos Comunes'
+        } %}
+        {% set recommendations = {
+            'paper': 'Deposítalo en el contenedor azul. Asegúrate de que no esté mojado o sucio.',
+            'cardboard': 'Recicla en el contenedor azul. Dóblalo para ahorrar espacio.',
+            'plastic': 'Úsalo en el contenedor amarillo. Asegúrate de que esté limpio.',
+            'metal': 'El contenedor amarillo es ideal. Recuerda separar tapas y etiquetas.',
+            'green-glass': 'Vidrio verde al contenedor verde. Retira tapas o corchos.',
+            'white-glass': 'Vidrio blanco también va en el contenedor verde.',
+            'brown-glass': 'Deposita vidrio marrón en el contenedor verde.',
+            'biological': 'Coloca los residuos orgánicos en el contenedor marrón.',
+            'battery': 'Llévalas a puntos de recolección de residuos peligrosos.',
+            'shoes': 'Dónalos si están en buen estado o deséchalos según la normativa local.',
+            'clothes': 'Reutiliza o dona antes de desechar. Consulta programas de reciclaje textil.',
+            'trash': 'Deposítalo en el contenedor gris o negro (residuos no reciclables).'
+        } %}
+        <div class="card text-center">
+            <div class="card-header {{ result }}">
+                Resultado de Clasificación
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Tipo de residuo: 
+                    <strong>{{ translations[result] if result in translations else result }}</strong>
+                </h2>
+                <img src="{{ img_path }}" alt="Imagen cargada" class="img-fluid mb-3" style="max-width: 300px;">
+                <button class="btn btn-info mt-3 mx-auto d-block" type="button" data-toggle="collapse" data-target="#recommendations" aria-expanded="false" aria-controls="recommendations">
+                    Mostrar Recomendaciones
+                </button>
+                <div class="collapse mt-3" id="recommendations">
+                    <div class="card card-body">
+                        {% if result in recommendations %}
+                            <p>
+                                {{ recommendations[result] | replace('contenedor', 
+                                '<span class="container-color ' ~ result ~ '">contenedor</span>') | safe }}
+                            </p>
+                        {% else %}
+                            No hay recomendaciones específicas para este tipo de residuo.
+                        {% endif %}
+                    </div>
+                </div>                
+            </div>
+            <div class="card-footer {{ result }}">
+                Imagen clasificada con éxito.
+            </div>
+        </div>
+        {% endif %}
+        <div class="mt-5"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
